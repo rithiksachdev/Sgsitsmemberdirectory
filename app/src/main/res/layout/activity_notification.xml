@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bgedt"
+    android:layout_height="match_parent"
+    tools:context=".NotificationActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/loginscrn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="consolas"
+        android:gravity="center"
+        android:text="@string/menu_notf"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/alegreya_sans_sc_bold" />
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="20dp"
+        android:background="@drawable/txt"
+        android:layout_gravity="center"
+        android:hint="@string/title" />
+
+
+    <EditText
+        android:id="@+id/domain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="@dimen/xxmargin"
+        android:background="@drawable/txt"
+        android:hint="@string/domain" />
+
+
+    <EditText
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/xxmargin"
+        android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/summary" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/stdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="@dimen/xxmargin"
+            android:layout_marginRight="62dp"
+            android:width="350dp"
+            android:background="@drawable/txt"
+            android:hint="@string/startdate"
+            android:paddingTop="6dp"
+            android:textSize="18sp"
+            android:paddingLeft="20dp" />
+
+
+        <ImageView
+            android:id="@+id/calendericdt"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="18dp"
+            app:srcCompat="@drawable/ic_date_range_black_24dp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/enddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="@dimen/xxmargin"
+            android:layout_marginRight="62dp"
+            android:width="350dp"
+            android:background="@drawable/txt"
+            android:hint="@string/enddate"
+            android:paddingTop="6dp"
+            android:textSize="18sp"
+            android:paddingLeft="20dp" />
+
+
+        <ImageView
+            android:id="@+id/calenderic"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="18dp"
+            app:srcCompat="@drawable/ic_date_range_black_24dp" />
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/desc"
+        android:layout_width="291dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/xxmargin"
+        android:background="@drawable/des"
+        android:hint="@string/desc"
+        android:inputType="textMultiLine"
+        android:paddingLeft="20dp" />
+
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:text="@string/add" />
+
+
+</LinearLayout>

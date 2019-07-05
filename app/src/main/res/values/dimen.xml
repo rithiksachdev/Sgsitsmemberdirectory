@@ -4,9 +4,9 @@
     <dimen name="xpadding">20dp</dimen>
     <dimen name="xxpadding">30dp</dimen>
 
-    <dimen name="margin">8dp</dimen>
-    <dimen name="xmargin">20dp</dimen>
-    <dimen name="xxmargin">160sp</dimen>
+    <dimen name="margin">15dp</dimen>
+    <dimen name="xmargin">10dp</dimen>
+    <dimen name="xxmargin">15dp</dimen>
 
     <dimen name="text_size">15dp</dimen>
     <dimen name="xtext_size">18dp</dimen>

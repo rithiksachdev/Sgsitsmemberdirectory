@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgedt"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/loginscrn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/edudetails"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/institutionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:hint="@string/instname" />
+
+    <AutoCompleteTextView
+        android:id="@+id/board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:hint="@string/board" />
+
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:inputType="number"
+        android:hint="@string/result" />
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/startdateedu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/txt"
+            android:hint="@string/startdate"
+            android:paddingVertical="10dp"
+            android:paddingLeft="20dp"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/calenderst"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/ic_date_range_black_24dp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/enddateedu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/txt"
+            android:hint="@string/enddate"
+            android:paddingVertical="10dp"
+            android:paddingLeft="20dp"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/calenderend"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/ic_date_range_black_24dp" />
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/degree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:hint="@string/degree" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+
+        <ImageView
+            android:id="@+id/nxt"
+            android:layout_marginTop="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/nxt2" />
+
+
+        <ImageView
+            android:id="@+id/nxtimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="370dp"
+            android:layout_marginTop="195dp"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

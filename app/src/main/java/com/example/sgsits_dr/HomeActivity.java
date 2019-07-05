@@ -1,13 +1,18 @@
 package com.example.sgsits_dr;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 
+import com.example.sgsits_dr.models.NotificationModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -25,50 +30,65 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import adp.RecyclerViewAdp;
+import database.DatabaseHelper;
 
-import static android.widget.LinearLayout.*;
 import static android.widget.LinearLayout.VERTICAL;
 
 public class HomeActivity extends AppCompatActivity
-
         implements NavigationView.OnNavigationItemSelectedListener {
     RecyclerView recyclerView;
+    DatabaseHelper databaseHelper;
+    String tmail;
+    ArrayList<NotificationModel> strings = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
-
         recyclerView = findViewById(R.id.recyclerView);
-
+        databaseHelper=DatabaseHelper.getInstance(this);
         /*Set up Linear layout for VERTICAL or HORIZONTAL Scrolling in Recycler view*/
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+
 
         /*Set up Linear layout for VERTICAL or HORIZONTAL divider*/
         recyclerView.addItemDecoration(
                 new DividerItemDecoration(this,
                         VERTICAL));
 
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("Student 1");
-        strings.add("Student 2");
-        strings.add("Student 3");
-        strings.add("Student 4");
-        strings.add("Student 5");
-        strings.add("Student 6");
-        strings.add("Student 7");
-        strings.add("Student 8");
+        try{
+            Cursor cursor=databaseHelper.getNotificationFromUser();
+            cursor.moveToFirst();
+            do {
+                String title = cursor.getString(0);
+                String domain = cursor.getString(1);
+                String summary = cursor.getString(2);
+                String startdate = cursor.getString(3);
+                String enddate = cursor.getString(4);
+                String desc = cursor.getString(5);
+                strings.add(new NotificationModel(title, desc, summary, domain, startdate, enddate));
+            } while (cursor.moveToNext());
+        }catch(Exception e)
+        {
+
+           e.printStackTrace();
+        }
+        strings.add(new NotificationModel("Jobs","Job in a Dream Company as a web developer, The students are expected to submit the forms before the last date and bring all the documents with them, 3 passport size photographs and 2 copies of their resume", "Job for CS/IT students as a front end web developer", "JOB", "2019-11-03", "2019-11-12"));
+        strings.add(new NotificationModel("Holidays","Wishing all the students a very Happy diwali, Lord ram won his battle against evil hope you win against your fears", "Holiday for 1 Week", "Holiday", "2018-09-03", "2018-09-10"));
+        strings.add(new NotificationModel("Expert Lecture","Dr. Chande sir will addressing all students for this fridays' expert lecture and enlighten students about android training ", "Dr. Chande Sir's Expert Lecture", "Expert Talk", "2019-06-28", "2019-06-28"));
+        strings.add(new NotificationModel("Jobs","Job in a Dream Company as a web developer, The students are expected to submit the forms before the last date and bring all the documents with them, 3 passport size photographs and 2 copies of their resume", "Job for CS/IT students as a front end web developer", "JOB", "2019-11-03", "2019-11-12"));
+        strings.add(new NotificationModel("Holidays","Wishing all the students a very Happy diwali, Lord ram won his battle against evil hope you win against your fears", "Holiday for 1 Week", "Holiday", "2018-09-03", "2018-09-10"));
+        strings.add(new NotificationModel("Expert Lecture","Dr. Chande sir will addressing all students for this fridays' expert lecture and enlighten students about android training ", "Dr. Chande Sir's Expert Lecture", "Expert Talk", "2019-06-28", "2019-06-28"));
         RecyclerViewAdp recyclerViewAdp = new RecyclerViewAdp(this, strings);
         recyclerView.setAdapter(recyclerViewAdp);
-        Intent intent=new Intent(this,emptyactivity.class);
-        startActivity(intent);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +96,7 @@ public class HomeActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        */DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -85,10 +105,10 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
     }
-
-   // public void DividerItemDecoration{
-     //   new DividerItemDecoration(this, LinearLayout.VERTICAL);
-    //}
+//
+//    public void DividerItemDecoration{
+//        new DividerItemDecoration(this, LinearLayout.VERTICAL);
+//    }
 
     @Override
     public void onBackPressed() {
@@ -116,6 +136,7 @@ public class HomeActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this,SettingsActivity.class));
             return true;
         }
 
@@ -128,25 +149,22 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_dir) {
-            // Handle the camera action
-        } else if (id == R.id.nav_contact) {
-
-        } else if (id == R.id.nav_chat) {
-
-        } else if (id == R.id.nav_comm) {
-
-        } else if (id == R.id.nav_notification) {
-
-        } else if (id == R.id.nav_editprofile) {
-            Intent intent=new Intent(this,edit_profile.class);
+        if (id == R.id.nav_editprofile) {
+            Intent intent=new Intent(this, Editprofile.class);
             startActivity(intent);
-        }
-        else if (id == R.id.nav_send) {
+        } else if (id == R.id.search) {
+            startActivity(new Intent(HomeActivity.this,SearchActivity.class));
 
-        }
-        else if (id == R.id.nav_share) {
+        } else if (id == R.id.notif) {
+            startActivity(new Intent(HomeActivity.this,NotificationActivity.class));
+        }  else if (id == R.id.setting) {
+            startActivity(new Intent(HomeActivity.this,SettingsActivity.class));
 
+        } else if (id == R.id.about) {
+            startActivity(new Intent(HomeActivity.this,AboutUs.class));
+        }
+        else if (id == R.id.logout) {
+            startActivity(new Intent(HomeActivity.this,MainActivity.class));
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

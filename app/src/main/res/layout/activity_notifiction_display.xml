@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/desback"
+    android:orientation="vertical"
+    tools:context=".NotifictionDisplay">
+
+    <TextView
+        android:id="@+id/notifdesc"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
+        android:fontFamily="@font/alegreya_sans_sc_bold"
+        android:textColor="#ffffff"
+        android:layout_height="350dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/notiflotti"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:lottie_fileName="noti.json" />
+</LinearLayout>

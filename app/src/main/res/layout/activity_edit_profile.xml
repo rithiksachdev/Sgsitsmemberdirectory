@@ -4,93 +4,225 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgedt"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <TextView
         android:id="@+id/loginscrn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:width="264dp"
-        android:height="47dp"
         android:text="Edit Profile"
         android:textSize="40sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="138dp"
-        android:layout_marginTop="25dp"
-        android:layout_height="138dp"
-        android:layout_gravity="center"
-        android:padding="20dp"
-        app:srcCompat="@drawable/edpr" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center">
 
-    <EditText
-        android:id="@+id/uname"
+        <ImageView
+            android:id="@+id/imggal"
+            android:layout_width="30dp"
+            android:layout_height="43dp"
+            app:srcCompat="@drawable/ic_unarchive_black_24dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="100dp"
+            />
+
+        <ImageView
+            android:id="@+id/imgedt"
+            android:layout_width="match_parent"
+            android:layout_height="163dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/edpr" />
+
+
+        <ImageView
+            android:id="@+id/imgcam"
+            android:layout_width="30dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="130dp"
+            app:srcCompat="@drawable/ic_camera_alt_black_24dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="30dp"
-        android:width="300dp"
-        android:height="46dp"
+        android:layout_marginTop="20dp">
+
+    <EditText
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="61dp"
+        android:layout_weight=".5"
         android:background="@drawable/txt"
-        android:hint="Username"
-        android:inputType="textEmailAddress"
+        android:hint="@string/fname"
         android:paddingLeft="20dp" />
 
     <EditText
-        android:id="@+id/bio"
+        android:id="@+id/lname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/txt"
-        android:width="300dp"
-        android:height="46dp"
-        android:paddingLeft="20dp"
-        android:inputType="textEmailAddress"
-        android:hint="Bio" />
-
-
-    <EditText
-        android:id="@+id/Email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/txt"
-        android:layout_marginTop="20dp"
-        android:width="300dp"
-        android:paddingLeft="20dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email" />
-
-    <EditText
-        android:id="@+id/MobileNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/txt"
-        android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"
-        android:width="300dp"
-        android:inputType="textEmailAddress"
-        android:hint="Contact Number" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/btn"
         android:layout_gravity="center"
-        android:text="Register" />
+        android:layout_marginRight="61dp"
+        android:layout_weight=".5"
+        android:background="@drawable/txt"
+        android:hint="@string/lname"
+        android:paddingLeft="20dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/dateofbirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/txt"
+            android:hint="@string/dob"
+            android:paddingVertical="10dp"
+            android:paddingLeft="20dp"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/calenderic"
+            android:layout_width="47dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/ic_date_range_black_24dp" />
+
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/mail" />
+
+    <EditText
+        android:id="@+id/mobileno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="@dimen/margin"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        android:layout_gravity="center"
+        android:hint="@string/contactno" />
+
+    <AutoCompleteTextView
+        android:id="@+id/branch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txt"
+        android:layout_marginTop="@dimen/margin"
+        android:completionThreshold="2"
+        android:paddingLeft="20dp"
+        android:layout_gravity="center"
+        android:hint="@string/branch" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="61dp"
+            android:layout_weight=".5"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="@dimen/xmargin"
+            android:background="@drawable/txt"
+            android:hint="City" />
+
+        <EditText
+            android:id="@+id/pinc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="61dp"
+            android:layout_weight=".5"
+            android:inputType="number"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="@dimen/xmargin"
+            android:background="@drawable/txt"
+            android:hint="Pincode" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/radiogen"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="61dp"
+                android:layout_weight=".5"
+                android:paddingLeft="2dp"
+                android:layout_marginTop="@dimen/margin"
+                android:text="Male" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="61dp"
+                android:layout_weight=".5"
+                android:paddingLeft="2dp"
+                android:layout_marginTop="@dimen/margin"
+                android:text="Female" />
+        </RadioGroup>
+    </LinearLayout>
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/nxt"
+        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        app:srcCompat="@drawable/nxt" />
+
+
+    <ImageView
+        android:id="@+id/nxtimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="370dp"
+        android:layout_marginTop="115dp"
+        app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+
+</RelativeLayout>
 
 
 </LinearLayout>

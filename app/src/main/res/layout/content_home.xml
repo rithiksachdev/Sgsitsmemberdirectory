@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00F7B4B4"
+    android:background="@drawable/bgedt"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".HomeActivity"
     android:orientation="vertical"
-    tools:showIn="@layout/app_bar_home">
 
+    tools:showIn="@layout/app_bar_home">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-
         ></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
